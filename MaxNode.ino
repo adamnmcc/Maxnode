@@ -43,6 +43,9 @@ CRGB leds[NUM_LEDS];    // Define the array of leds
 DHT dht(DHTPIN, DHTTYPE);
 unsigned long timeLater = 0;
 
+/* input button settings currentl plugged into D2 on Elecrow NodeMCU Dev Board */
+const int button = 4;
+
 
 /* MQTT Settings */
 String ledstatusTopic   = "sensor/maxnode/status";       // MQTT topic
@@ -230,6 +233,7 @@ void setColor()
    Setup
 */
 void setup() {
+  pinMode(button,INPUT); 
   Serial.begin(115200);
   Serial.println("Booting");
   WiFi.mode(WIFI_STA);
@@ -359,6 +363,11 @@ void loop() {
     Serial.println("%");
     
   }
+
+    if(digitalRead(button)){
+  Serial.print("Button Pressed");
+  }
+ 
 
   if (client.connected())
     client.loop();

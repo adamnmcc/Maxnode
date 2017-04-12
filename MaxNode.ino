@@ -1,12 +1,5 @@
 /*
-   Message format is "position,red,green,blue" like:
-
-     3,23,87,12     (Turns on LED 3 with mostly blue tone)
-     0,255,0,0      (Turns on LED 0 with bright red)
-     2,0,0,0        (Turns LED 2 totally off)
-     2,255,255,255  (Turns LED 2 on full white)
-
-   Position starts at 0
+   Message format is "state,brightness,red,green,blue
 */
 
 #include <ESP8266WiFi.h>
